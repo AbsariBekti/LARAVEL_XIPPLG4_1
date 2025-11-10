@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
-use App\Http\controllers\LandingController;
-use app\http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\StudentController;
 
-Route::get('/', [LandingController::class, 'index'])->name('Landing');
+// Halaman landing
+Route::get('/', [LandingController::class, 'index'])->name('landing');
 
-Route::prefix('admin')->group(function () {
-     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::prefix('admin')->name('admin.')->group(function () {
+// Halaman dashboard admin
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// Resource controller untuk Student
+Route::resource('students', StudentController::class);
+
 });
-=======
-
-Route::get('/', function () {
-    return view('welcome');
-});
->>>>>>> bff4f3e9c22a9cba560382400f339d3a2d793b44
